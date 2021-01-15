@@ -1,4 +1,6 @@
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const SubmissionModal = (props) => {
   const { showModal, closeModal, nominated } = props;
@@ -6,7 +8,10 @@ const SubmissionModal = (props) => {
   return (
     <Modal show={showModal} onHide={closeModal}>
       <Modal.Header closeButton>
-        <Modal.Title>Nominations Submitted</Modal.Title>
+        <Modal.Title>
+          <FontAwesomeIcon icon={faCheck} style={{ marginRight: 15 }} />
+          Nominations Submitted
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <h6>
@@ -17,18 +22,12 @@ const SubmissionModal = (props) => {
         <p>Your nominations:</p>
         <ol>
           {nominated.map((movie, index) => (
-            <li key={index}>{movie.Title}</li>
+            <li key={index} style={{ fontWeight: "bold" }}>
+              <span style={{ fontWeight: "normal" }}>{movie.Title}</span>
+            </li>
           ))}
         </ol>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={closeModal}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={closeModal}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };
