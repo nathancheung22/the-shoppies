@@ -10,11 +10,18 @@ const MovieList = (props) => {
   const [moviesObj, setMoviesObj] = useState({ totalResults: "0", Search: [] });
 
   const { totalResults, Search } = moviesObj;
-  const { searchQuery, addNominated, nominated } = props;
+  const { searchQuery, addNominated, nominated, setTooManyResults } = props;
 
   // update the movie list if searchQuery or pageNumber has been changed
   useDidMountEffect(() => {
-    searchMovie(searchQuery, pageNumber).then((data) => setMoviesObj(data));
+    searchMovie(searchQuery, pageNumber).then((data) => {
+      if (data.Response === "False") {
+        setTooManyResults(true);
+      } else {
+        setMoviesObj(data);
+        setTooManyResults(false);
+      }
+    });
   }, [searchQuery, pageNumber]);
 
   const numOfPages = totalResults === "0" ? 0 : parseInt(parseInt(totalResults) / 10) + 1;

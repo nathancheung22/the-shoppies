@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Form, Card } from "react-bootstrap";
 
 const SearchBar = (props) => {
-  const { setSearchQuery } = props;
+  const { setSearchQuery, tooManyResults } = props;
 
   const [keys, setKeys] = useState(new Set());
   const [searchVal, setSearchVal] = useState("");
@@ -25,17 +25,20 @@ const SearchBar = (props) => {
     // <div style={{ marginTop: 25, marginBottom: 35 }}>
     <Card>
       <Card.Body>
-        <Form.Label htmlFor="search-bar">Search Movie Titles</Form.Label>
+        <Form.Label htmlFor="search-bar">
+          Search any movie/show title from IMDB to nominate
+        </Form.Label>
         <Form.Control
           id="search-bar"
           value={searchVal}
           onChange={(e) => setSearchVal(e.target.value)}
           onKeyDown={handleKeyDown}
           onKeyUp={handleKeyUp}
+          isInvalid={tooManyResults}
         />
-        <Form.Text id="search-bar" muted>
-          Search any movie/show title from IMDB to nominate!
-        </Form.Text>
+        <Form.Control.Feedback type="invalid">
+          Too many results! Please try again with a more specific query
+        </Form.Control.Feedback>
       </Card.Body>
     </Card>
     // </div>

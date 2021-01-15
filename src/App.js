@@ -8,6 +8,7 @@ import "./App.css";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [tooManyResults, setTooManyResults] = useState(false);
   const [nominated, setNominated] = useStickyState([], "nomination-list");
 
   // helper function to add to nominated list
@@ -39,12 +40,17 @@ const App = () => {
         <Col>
           <h2 className="title">The Shoppies</h2>
 
-          <SearchBar setSearchQuery={setSearchQuery} />
+          <SearchBar setSearchQuery={setSearchQuery} tooManyResults={tooManyResults} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <MovieList nominated={nominated} searchQuery={searchQuery} addNominated={addNominated} />
+          <MovieList
+            setTooManyResults={setTooManyResults}
+            nominated={nominated}
+            searchQuery={searchQuery}
+            addNominated={addNominated}
+          />
         </Col>
         <Col>
           <NominationList
