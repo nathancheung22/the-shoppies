@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import NominatedItem from "./NominatedItem";
 import { ReactSortable } from "react-sortablejs";
 
@@ -8,7 +8,7 @@ const NominationList = (props) => {
   return (
     <Card style={{ marginTop: 35, height: "65vh" }}>
       <Card.Body>
-        <h5>Your Nominations from 1 - 5 in ascending order:</h5>
+        <h5>Your Nominations in ascending order:</h5>
         <div className="list-overflow">
           <ReactSortable
             tag="div"
@@ -23,6 +23,13 @@ const NominationList = (props) => {
           </ReactSortable>
         </div>
 
+        <Button
+          variant="primary"
+          style={{ float: "right", marginTop: 14 }}
+          onClick={() => console.log("submit")}
+        >
+          Submit
+        </Button>
         <p style={{ marginTop: 7 }}>Drag items to rearrange!</p>
       </Card.Body>
     </Card>

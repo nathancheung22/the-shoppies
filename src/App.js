@@ -5,6 +5,9 @@ import MovieList from "./components/movie-list/MovieList";
 import NominationList from "./components/nomination-list/NominationList";
 import useStickyState from "./util/useStickyState";
 import "./App.css";
+import dab from "./img/dab.gif";
+import money from "./img/money.gif";
+import logo from "./img/logo.png";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -38,7 +41,10 @@ const App = () => {
     <Container>
       <Row>
         <Col>
-          <h2 className="title">The Shoppies</h2>
+          <img src={money} style={{ float: "right", height: 110, marginTop: 15 }} />
+          <img src={dab} style={{ float: "right", height: 110, marginTop: 15, marginRight: 25 }} />
+
+          <img src={logo} style={{ marginTop: 25, height: 125 }} />
 
           <SearchBar setSearchQuery={setSearchQuery} tooManyResults={tooManyResults} />
         </Col>

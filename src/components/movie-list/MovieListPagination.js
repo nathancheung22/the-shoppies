@@ -54,7 +54,7 @@ const MovieListPagination = (props) => {
 
   // create pagination
   return (
-    <div style={{ marginTop: "14px" }}>
+    <div style={{ marginTop: 14 }}>
       <Pagination>
         <Pagination.First onClick={() => setPageNumber(1)} />
         <Pagination.Prev
