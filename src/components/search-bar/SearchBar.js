@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Card } from "react-bootstrap";
+import { Form, Card, InputGroup, Button } from "react-bootstrap";
 
 const SearchBar = (props) => {
   const { setSearchQuery, tooManyResults } = props;
@@ -22,26 +22,36 @@ const SearchBar = (props) => {
   };
 
   return (
-    // <div style={{ marginTop: 25, marginBottom: 35 }}>
     <Card>
       <Card.Body>
-        <Form.Label htmlFor="search-bar">
-          Search any movie/show title from IMDB to nominate
-        </Form.Label>
-        <Form.Control
-          id="search-bar"
-          value={searchVal}
-          onChange={(e) => setSearchVal(e.target.value)}
-          onKeyDown={handleKeyDown}
-          onKeyUp={handleKeyUp}
-          isInvalid={tooManyResults}
-        />
-        <Form.Control.Feedback type="invalid">
-          Too many results! Please try again with a more specific query
-        </Form.Control.Feedback>
+        <Form.Label htmlFor="search-bar">Search any movie title from OMDB to nominate</Form.Label>
+
+        <InputGroup className="mb-3">
+          <Form.Control
+            id="search-bar"
+            value={searchVal}
+            onChange={(e) => setSearchVal(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
+            isInvalid={tooManyResults}
+            placeholder="Enter search query here..."
+          />
+
+          <InputGroup.Append>
+            <Button
+              variant="primary"
+              onClick={() => setSearchQuery(searchVal)}
+              style={{ borderTopRightRadius: "0.25rem", borderBottomRightRadius: "0.25rem" }}
+            >
+              Search
+            </Button>
+          </InputGroup.Append>
+          <Form.Control.Feedback type="invalid">
+            Too many results! Please try again with a more specific query
+          </Form.Control.Feedback>
+        </InputGroup>
       </Card.Body>
     </Card>
-    // </div>
   );
 };
 
