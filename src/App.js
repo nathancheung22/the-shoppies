@@ -41,10 +41,14 @@ const App = () => {
     <Container>
       <Row>
         <Col>
-          <img src={money} style={{ float: "right", height: 110, marginTop: 15 }} />
-          <img src={dab} style={{ float: "right", height: 110, marginTop: 15, marginRight: 25 }} />
+          <img src={money} alt="" style={{ float: "right", height: 110, marginTop: 15 }} />
+          <img
+            src={dab}
+            alt=""
+            style={{ float: "right", height: 110, marginTop: 15, marginRight: 25 }}
+          />
 
-          <img src={logo} style={{ marginTop: 25, height: 125 }} />
+          <img src={logo} alt="" style={{ marginTop: 25, height: 125 }} />
 
           <SearchBar setSearchQuery={setSearchQuery} tooManyResults={tooManyResults} />
         </Col>
