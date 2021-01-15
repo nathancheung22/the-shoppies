@@ -41,12 +41,16 @@ const App = () => {
     <Container>
       <Row>
         <Col>
-          <img src={money} alt="" style={{ float: "right", height: 110, marginTop: 15 }} />
-          <img
-            src={dab}
-            alt=""
-            style={{ float: "right", height: 110, marginTop: 15, marginRight: 25 }}
-          />
+          <a href="https://www.linkedin.com/in/nacheung22/" target="_blank">
+            <img src={money} alt="" style={{ float: "right", height: 110, marginTop: 15 }} />
+          </a>
+          <a href="https://www.ncheung.ca/" target="_blank">
+            <img
+              src={dab}
+              alt=""
+              style={{ float: "right", height: 110, marginTop: 15, marginRight: 25 }}
+            />
+          </a>
 
           <img src={logo} alt="" style={{ marginTop: 25, height: 125 }} />
 
