@@ -47,7 +47,11 @@ const App = () => {
           <MovieList searchQuery={searchQuery} addNominated={addNominated} />
         </Col>
         <Col>
-          <NominationList nominated={nominated} removeNominated={removeNominated} />
+          <NominationList
+            nominated={nominated}
+            setNominated={setNominated}
+            removeNominated={removeNominated}
+          />
         </Col>
       </Row>
     </Container>

@@ -1,7 +1,7 @@
 import { Image, Card } from "react-bootstrap";
 import noImage from "../../img/no-image.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const NominatedItem = (props) => {
   const { Title, Poster, Year, removeNominated } = props;
@@ -26,6 +26,7 @@ const NominatedItem = (props) => {
               style={{ float: "right" }}
               onClick={() => removeNominated({ Title, Poster, Year })}
             />
+            <FontAwesomeIcon icon={faBars} style={{ float: "right", marginRight: 8 }} />
           </div>
         </div>
       </Card.Body>
