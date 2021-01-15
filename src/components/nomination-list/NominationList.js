@@ -1,11 +1,16 @@
 import { Card, Button } from "react-bootstrap";
 import NominatedItem from "./NominatedItem";
 import { ReactSortable } from "react-sortablejs";
-// import { useState } from "react";
+import { useState } from "react";
+import useStickyState from "../../util/useStickyState";
+import SubmissionModal from "../modal/SubmissionModal";
 
 const NominationList = (props) => {
   const { nominated, setNominated, removeNominated } = props;
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [hasAlreadySubmitted, setHasAlreadySubmitted] = useStickyState(false, "has-submitted");
+
+  const closeModal = () => setShowModal(false);
 
   return (
     <Card style={{ marginTop: 35, height: "65vh" }}>
@@ -28,12 +33,16 @@ const NominationList = (props) => {
         <Button
           variant="primary"
           style={{ float: "right", marginTop: 14 }}
-          // onClick={() => setShowModal(true)}
-          onClick={() => console.log("show")}
+          onClick={() => {
+            setShowModal(true);
+            setHasAlreadySubmitted(true);
+          }}
         >
-          Submit
+          {hasAlreadySubmitted ? "Submit Again" : "Submit"}
         </Button>
         <p style={{ marginTop: 7 }}>Drag items to rearrange!</p>
+
+        <SubmissionModal showModal={showModal} closeModal={closeModal} nominated={nominated} />
       </Card.Body>
     </Card>
   );
