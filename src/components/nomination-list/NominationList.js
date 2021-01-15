@@ -1,9 +1,11 @@
 import { Card, Button } from "react-bootstrap";
 import NominatedItem from "./NominatedItem";
 import { ReactSortable } from "react-sortablejs";
+import { useState } from "react";
 
 const NominationList = (props) => {
   const { nominated, setNominated, removeNominated } = props;
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <Card style={{ marginTop: 35, height: "65vh" }}>
@@ -26,7 +28,7 @@ const NominationList = (props) => {
         <Button
           variant="primary"
           style={{ float: "right", marginTop: 14 }}
-          onClick={() => console.log("submit")}
+          onClick={() => setShowModal(true)}
         >
           Submit
         </Button>

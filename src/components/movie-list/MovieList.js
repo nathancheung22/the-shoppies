@@ -8,6 +8,7 @@ import searchMovie from "../../api/searchMovie";
 const MovieList = (props) => {
   const [pageNumber, setPageNumber] = useState(1);
   const [moviesObj, setMoviesObj] = useState({ totalResults: "0", Search: [] });
+  const [hasMovie, setHasMovie] = useState(true);
 
   const { totalResults, Search } = moviesObj;
   const { searchQuery, addNominated, nominated, setTooManyResults } = props;
@@ -15,11 +16,14 @@ const MovieList = (props) => {
   // update the movie list if searchQuery or pageNumber has been changed
   useDidMountEffect(() => {
     searchMovie(searchQuery, pageNumber).then((data) => {
-      if (data.Response === "False") {
-        setTooManyResults(true);
-      } else {
+      if (data.Response === "True") {
         setMoviesObj(data);
         setTooManyResults(false);
+        setHasMovie(true);
+      } else if (data.Error === "Movie not found!") {
+        setHasMovie(false);
+      } else if (data.Error === "") {
+        setTooManyResults(true);
       }
     });
   }, [searchQuery, pageNumber]);
@@ -34,9 +38,16 @@ const MovieList = (props) => {
         </h5>
         {/* Adds movie items */}
         <div className="list-overflow">
-          {Search.map((data, index) => (
-            <MovieItem {...data} key={index} nominated={nominated} addNominated={addNominated} />
-          ))}
+          {hasMovie
+            ? Search.map((data, index) => (
+                <MovieItem
+                  {...data}
+                  key={index}
+                  nominated={nominated}
+                  addNominated={addNominated}
+                />
+              ))
+            : "no results"}
         </div>
 
         <MovieListPagination

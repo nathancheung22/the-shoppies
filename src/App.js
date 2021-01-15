@@ -52,15 +52,9 @@ const App = () => {
             />
           </a>
 
-          <div style={{ overflowX: "auto" }}>
-            <a href="/" style={{ display: "inline-block" }}>
-              <img src={logo} alt="" style={{ marginTop: 25, height: 125 }} />
-            </a>
-
-            <p style={{ display: "inline-block", marginLeft: 10, position: "relative", top: 30 }}>
-              By Nathan Cheung
-            </p>
-          </div>
+          <a href="/" style={{ display: "inline-block" }}>
+            <img src={logo} alt="" style={{ marginTop: 25, height: 125, marginBottom: 20 }} />
+          </a>
 
           <SearchBar setSearchQuery={setSearchQuery} tooManyResults={tooManyResults} />
         </Col>
@@ -81,6 +75,11 @@ const App = () => {
             removeNominated={removeNominated}
           />
         </Col>
+      </Row>
+      <Row>
+        <p style={{ display: "inline-block", marginLeft: 10, position: "relative", top: 30 }}>
+          By Nathan Cheung
+        </p>
       </Row>
     </Container>
   );
