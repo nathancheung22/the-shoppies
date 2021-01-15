@@ -76,11 +76,6 @@ const App = () => {
           />
         </Col>
       </Row>
-      <Row>
-        <p style={{ display: "inline-block", marginLeft: 10, position: "relative", top: 30 }}>
-          By Nathan Cheung
-        </p>
-      </Row>
     </Container>
   );
 };
