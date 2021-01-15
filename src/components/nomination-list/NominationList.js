@@ -15,13 +15,15 @@ const NominationList = (props) => {
             list={nominated}
             setList={setNominated}
             animation={150}
-            handle=".fa-bars"
+            handle=".card-sortable"
           >
             {nominated.map((movie, index) => (
               <NominatedItem {...movie} key={index} removeNominated={removeNominated} />
             ))}
           </ReactSortable>
         </div>
+
+        <p style={{ marginTop: 7 }}>Drag items to rearrange!</p>
       </Card.Body>
     </Card>
   );

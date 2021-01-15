@@ -10,7 +10,7 @@ const MovieList = (props) => {
   const [moviesObj, setMoviesObj] = useState({ totalResults: "0", Search: [] });
 
   const { totalResults, Search } = moviesObj;
-  const { searchQuery, addNominated } = props;
+  const { searchQuery, addNominated, nominated } = props;
 
   // update the movie list if searchQuery or pageNumber has been changed
   useDidMountEffect(() => {
@@ -28,7 +28,7 @@ const MovieList = (props) => {
         {/* Adds movie items */}
         <div className="list-overflow">
           {Search.map((data, index) => (
-            <MovieItem {...data} key={index} addNominated={addNominated} />
+            <MovieItem {...data} key={index} nominated={nominated} addNominated={addNominated} />
           ))}
         </div>
 

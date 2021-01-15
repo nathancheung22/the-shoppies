@@ -44,7 +44,7 @@ const App = () => {
       </Row>
       <Row>
         <Col>
-          <MovieList searchQuery={searchQuery} addNominated={addNominated} />
+          <MovieList nominated={nominated} searchQuery={searchQuery} addNominated={addNominated} />
         </Col>
         <Col>
           <NominationList
