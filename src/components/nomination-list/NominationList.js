@@ -1,7 +1,7 @@
 import { Card, Button } from "react-bootstrap";
 import NominatedItem from "./NominatedItem";
 import { ReactSortable } from "react-sortablejs";
-import { useState } from "react";
+// import { useState } from "react";
 
 const NominationList = (props) => {
   const { nominated, setNominated, removeNominated } = props;
