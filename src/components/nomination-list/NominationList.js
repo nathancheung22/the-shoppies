@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const NominationList = (props) => {
   const { nominated, setNominated, removeNominated } = props;
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
   return (
     <Card style={{ marginTop: 35, height: "65vh" }}>
@@ -28,7 +28,8 @@ const NominationList = (props) => {
         <Button
           variant="primary"
           style={{ float: "right", marginTop: 14 }}
-          onClick={() => setShowModal(true)}
+          // onClick={() => setShowModal(true)}
+          onClick={() => console.log("show")}
         >
           Submit
         </Button>
