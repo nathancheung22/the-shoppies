@@ -41,10 +41,10 @@ const App = () => {
     <Container>
       <Row>
         <Col>
-          <a href="https://www.linkedin.com/in/nacheung22/" target="_blank">
+          <a href="https://www.linkedin.com/in/nacheung22/" target="_blank" rel="noreferrer">
             <img src={money} alt="" style={{ float: "right", height: 110, marginTop: 15 }} />
           </a>
-          <a href="https://www.ncheung.ca/" target="_blank">
+          <a href="https://www.ncheung.ca/" target="_blank" rel="noreferrer">
             <img
               src={dab}
               alt=""
