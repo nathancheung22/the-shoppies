@@ -1,4 +1,4 @@
-import { Modal } from "react-bootstrap";
+import { Modal, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,13 +7,12 @@ const SubmissionModal = (props) => {
 
   return (
     <Modal show={showModal} onHide={closeModal}>
-      <Modal.Header closeButton>
-        <Modal.Title>
+      {/* temp code */}
+      <Alert variant="success" style={{ margin: 0 }}>
+        <Alert.Heading>
           <FontAwesomeIcon icon={faCheck} style={{ marginRight: 15 }} />
           Nominations Submitted
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+        </Alert.Heading>
         <h6>
           Congratulations! We've submitted your nominations. These will definitely go into the right
           hands
@@ -27,7 +26,7 @@ const SubmissionModal = (props) => {
             </li>
           ))}
         </ol>
-      </Modal.Body>
+      </Alert>
     </Modal>
   );
 };
