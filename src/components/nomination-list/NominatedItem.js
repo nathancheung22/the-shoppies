@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const NominatedItem = (props) => {
-  const { Title, Poster, Year, removeNominated } = props;
+  const { Title, Poster, Year, imdbID, removeNominated } = props;
 
   const imgSrc = Poster === "N/A" ? noImage : Poster;
 
@@ -21,15 +21,20 @@ const NominatedItem = (props) => {
         />
 
         <div style={{ marginLeft: 60 }}>
-          <h6>{Title}</h6>
-          <div>
-            <p style={{ float: "left" }}>{Year}</p>
-            <FontAwesomeIcon
-              icon={faTimes}
-              style={{ float: "right" }}
-              onClick={() => removeNominated({ Title, Poster, Year })}
-            />
-          </div>
+          <h6>{`${Title} - (${Year})`}</h6>
+          <a
+            href={`https://www.imdb.com/title/${imdbID}/`}
+            target="_blank"
+            rel="noreferrer"
+            style={{ float: "left" }}
+          >
+            View on IMDb
+          </a>
+          <FontAwesomeIcon
+            icon={faTimes}
+            style={{ float: "right" }}
+            onClick={() => removeNominated({ Title, Poster, Year })}
+          />
         </div>
       </Card.Body>
     </Card>

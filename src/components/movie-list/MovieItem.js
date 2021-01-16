@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const MovieItem = (props) => {
-  const { Title, Poster, Year, nominated, addNominated } = props;
+  const { Title, Poster, Year, imdbID, nominated, addNominated } = props;
 
   const imgSrc = Poster === "N/A" ? noImage : Poster;
 
   // check if item is already nominated
   let isNominated = false;
   for (const data of nominated) {
-    if (data.Title === Title && data.Poster === Poster && data.Year === Year) {
+    if (data.imdbID === imdbID) {
       isNominated = true;
       break;
     }
@@ -28,7 +28,7 @@ const MovieItem = (props) => {
       variant="warning"
       size="sm"
       style={{ float: "right" }}
-      onClick={() => addNominated({ Title, Poster, Year })}
+      onClick={() => addNominated({ Title, Poster, Year, imdbID })}
     >
       Nominate
     </Button>
@@ -44,11 +44,16 @@ const MovieItem = (props) => {
         />
 
         <div style={{ marginLeft: 60 }}>
-          <h6>{Title}</h6>
-          <div>
-            <p style={{ float: "left" }}>{Year}</p>
-            {nominatedButton}
-          </div>
+          <h6>{`${Title} - (${Year})`}</h6>
+          <a
+            href={`https://www.imdb.com/title/${imdbID}/`}
+            target="_blank"
+            rel="noreferrer"
+            style={{ float: "left" }}
+          >
+            View on IMDb
+          </a>
+          {nominatedButton}
         </div>
       </Card.Body>
     </Card>

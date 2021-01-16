@@ -24,7 +24,7 @@ const SearchBar = (props) => {
   return (
     <Card>
       <Card.Body>
-        <Form.Label htmlFor="search-bar">Search any movie title from OMDB to nominate</Form.Label>
+        <Form.Label htmlFor="search-bar">Search any movie title from IMDb to nominate</Form.Label>
 
         <InputGroup className="mb-3">
           <Form.Control

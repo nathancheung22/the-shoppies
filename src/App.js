@@ -19,8 +19,8 @@ const App = () => {
     if (nominated.length === 5) return;
 
     // checks if equivalent object is already in array
-    for (const { Poster, Title, Year } of nominated) {
-      if (data.Poster === Poster && data.Title === Title && data.Year === Year) return;
+    for (const { imdbID } of nominated) {
+      if (data.imdbID === imdbID) return;
     }
 
     setNominated([...nominated, data]);
